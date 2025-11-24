@@ -5,8 +5,6 @@ import LinksList from "./components/LinksList";
 const STORAGE_KEY = "shortLinks";
 const BITLY_ENDPOINT = "https://api-ssl.bitly.com/v4/shorten";
 
-// You explicitly asked to expose the token, so we'll hardcode it here.
-// Fine for class projects; DO NOT do this in real production.
 const BITLY_TOKEN = "Bearer 7a32e1dbc7d361c59ce06ceb7b4acd221421ebab";
 
 function App() {
@@ -37,7 +35,6 @@ function App() {
     }
   }, [links]);
 
-  // Called by ShortenForm when user submits a valid URL
   async function handleShorten(url) {
     setError("");
     setLoading(true);
@@ -89,7 +86,6 @@ function App() {
 
       {/* MAIN CONTENT */}
       <div>
-        {/* Blue area: form + list */}
         <div id="bluebg">
           <ShortenForm onShorten={handleShorten} error={error} loading={loading} />
         </div>
@@ -98,7 +94,6 @@ function App() {
           <LinksList links={links} />
         </div>
 
-        {/* Features section (your original text) */}
         <div id="features" className="centered">
           <h2 className="large-margin">Advanced Statistics</h2>
           <p>
